@@ -37,14 +37,15 @@ jobs:
       #    key: cache-key-${{hashFiles- github.sha }} 
 
       - name: Install dependencies
-        run: |
-          cd react-app
-          npm ci
+        working-directory: react-app
+        run: npm ci
 
       - name: Testing
+        working-directory: react-app
         run: npm run test
 
       - name: Building
+        working-directory: react-app
         run: npm run build
 
       - name: Deploying to nonprod
